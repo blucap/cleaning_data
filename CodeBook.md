@@ -2,7 +2,7 @@ The script `download_and_unzip_data_files.R` downloads and extracts under the fo
 
 The script `process_data.R` executes the steps required as described in the course project’s definition.
 
-2. Assign each data to variables
+1. Assign each data to variables
    - `features` <- `features.txt` : 561 rows, 2 columns 
       *We need this file because it contains the 561 variable names of the main data* : 
       `names <- features$functions`
