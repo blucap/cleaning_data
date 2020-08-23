@@ -17,6 +17,7 @@ The script `process_data.R` executes the steps required as described in the cour
    - `activity_codes <- rbind(read.table("./train/y_train.txt"), read.table("./test/y_test.txt"))
       names(activity_codes) <- "code"` 
       The `activity_codes` *series contains 10,299 observations, coded by numbers. These codes will be renamed using the table*  `activity_code_table`, *see below*.
+      
       Note, the `train`-ing and `test` data are merged in one go.
       
    - `subject <- rbind(read.table("./train/subject_train.txt"), read.table("./test/subject_test.txt"))
@@ -24,8 +25,9 @@ The script `process_data.R` executes the steps required as described in the cour
       *The* `subject` *series contains 10,299 rows, coded with numbers representing the volunteer test subjects*.
    
 2. Merges the data to create one data set
-   - `MergedData <- cbind(subject, activity_codes, x)`
-
+   
+- `MergedData <- cbind(subject, activity_codes, x)`
+   
 3. Extracts only the measurements on the **mean** and **standard deviation** for each measurement
 
    - `TidyData <- select(MergedData, subject, code, contains("mean"), contains("std"))`
@@ -47,8 +49,7 @@ The script `process_data.R` executes the steps required as described in the cour
    - All start with character `t` in column’s name replaced by `Time`
    - etc.
    - `TidyData` now contains 10,299 rows and 88 columns.
-   -  is created by summarising `TidyData` taking the means of each variable for each activity and each subject, after grouped by subject and activity.
-
+   
 6. From the `TidyData` data set, creates a second, independent  tidy data set with the average of each variable for each activity and  each subject
    - `StatsData <- aggregate(. ~subject + activity, TidyData, mean)`
    - This table contains 180 rows, 88 columns created by taking the means of `TidyData`  activities  grouped by `subject` and `activity`.
