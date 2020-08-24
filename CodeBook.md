@@ -7,9 +7,9 @@ The script `process_data.R` executes the steps required as described in the cour
       *We need this file because it contains the 561 variable names of the main data* : 
       `names <- features$functions`
       
-   - `x <- rbind(read.table("./train/X_train.txt"), read.table("./test/X_test.txt"))`
+   - `x <- rbind(read.table("./train/X_train.txt"), read.table("./test/X_test.txt"))``
       
-   `names(x) <- names`
+   - `names(x) <- names`
       
    *Table* `x` *contains the main data, with all the numbers we need. The columns are properly named.*
       
@@ -17,7 +17,7 @@ The script `process_data.R` executes the steps required as described in the cour
       
    - `activity_codes <- rbind(read.table("./train/y_train.txt"), read.table("./test/y_test.txt"))`
       
-      `names(activity_codes) <- "code"` 
+   - `names(activity_codes) <- "code"` 
       The `activity_codes` *series contains 10,299 observations, coded by numbers. These codes will be renamed using the table*  `activity_code_table`, *see below*.
       
       Note, the `train`-ing and `test` data are merged in one go.
