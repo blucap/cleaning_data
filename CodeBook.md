@@ -7,20 +7,21 @@ The script `process_data.R` executes the steps required as described in the cour
       *We need this file because it contains the 561 variable names of the main data* : 
       `names <- features$functions`
       
-   - `x <- rbind(read.table("./train/X_train.txt"), read.table("./test/X_test.txt"))``
-      
+   - `x <- rbind(read.table("./train/X_train.txt"), read.table("./test/X_test.txt"))`
+     
    - `names(x) <- names`
-      
-   *Table* `x` *contains the main data, with all the numbers we need. The columns are properly named.*
-      
-   Note, the `train`-ing and `test` data are merged in one go.
-      
+     
+     *Table* `x` *contains the main data, with all the numbers we need. The columns are properly named.*
+     
+     *Note, the* `train`*-ing and `test` data are merged in one go*.
+   
    - `activity_codes <- rbind(read.table("./train/y_train.txt"), read.table("./test/y_test.txt"))`
-      
+     
    - `names(activity_codes) <- "code"` 
-      The `activity_codes` *series contains 10,299 observations, coded by numbers. These codes will be renamed using the table*  `activity_code_table`, *see below*.
       
-      Note, the `train`-ing and `test` data are merged in one go.
+      *The* `activity_codes` *series contains 10,299 observations, coded by numbers. These codes will be renamed using the table*  `activity_code_table`, *see below*.
+      
+      *Note, the `train`-ing and `test` data are merged in one go.*
       
    - `subject <- rbind(read.table("./train/subject_train.txt"), read.table("./test/subject_test.txt"))
       names(subject) <- "subject"` 
@@ -28,8 +29,7 @@ The script `process_data.R` executes the steps required as described in the cour
    
 2. Merges the data to create one data set
    
-- `MergedData <- cbind(subject, activity_codes, x)`
-  
+   - `MergedData <- cbind(subject, activity_codes, x)`
 3. Extracts only the measurements on the **mean** and **standard deviation** for each measurement
 
    - `TidyData <- select(MergedData, subject, code, contains("mean"), contains("std"))`
