@@ -33,12 +33,12 @@ The script `process_data.R` executes the steps required as described in the cour
 3. Extracts only the measurements on the **mean** and **standard deviation** for each measurement
 
    - `TidyData <- select(MergedData, subject, code, contains("mean"), contains("std"))`
-   - This table contains 10,299 rows and 88 columns selected from `MergedData` 
+   - *This table contains 10,299 rows and 88 columns selected from* `MergedData` 
 
 4. Uses descriptive activity names to name the activities in the data set:
 
-   - `activity_code_table <- read.table("activity_labels.txt", col.names = c("code", "activity"))` This table contains the descriptive names of the six activities. 
-      We will map these activities to `TidyData`:  
+   - `activity_code_table <- read.table("activity_labels.txt", col.names = c("code", "activity"))` *This table contains the descriptive names of the six activities.* 
+      *We will map these activities to* `TidyData`:  
       `TidyData$code <- activity_code_table[TidyData$code, 2]`
 
 5. Appropriately labels the data set with descriptive variable names
@@ -54,7 +54,7 @@ The script `process_data.R` executes the steps required as described in the cour
    
 6. From the `TidyData` data set, creates a second, independent  tidy data set with the average of each variable for each activity and  each subject
    - `StatsData <- aggregate(. ~subject + activity, TidyData, mean)`
-   - This table contains 180 rows, 88 columns created by taking the means of `TidyData`  activities  grouped by `subject` and `activity`.
+   - *This table contains 180 rows, 88 columns created by taking the means of `TidyData`  activities  grouped by* `subject` *and* `activity`.
 
 7. Export the data:
 
